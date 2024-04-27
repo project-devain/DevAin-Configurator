@@ -16,7 +16,7 @@ repositories {
 
 depdendencies {
     // YAML 설정 파일을 사용하는 경우
-    implementation "skywolf46:devain-configurator-yaml:1.3.0"
+    implementation "skywolf46:devain-configurator-yaml:1.3.1"
 }
 ```
 
