@@ -1,6 +1,6 @@
 # Devain Configurator
 
-Devain Configurator은 Devain 프로젝트에서의 설정 파일 데이터를 관리하는 클래스입니다.
+Devain Configurator은 Devain 프로젝트에서의 설정 파일 데이터를 관리하는 라이브러리입니다.
 
 맵 기반 설정 파일에 대해 호환성을 가집니다.
 
