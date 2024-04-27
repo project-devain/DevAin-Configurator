@@ -1,0 +1,44 @@
+plugins {
+    id 'maven-publish'
+    id 'org.jetbrains.kotlin.jvm' version '1.8.20'
+}
+
+group = 'skywolf46'
+version = rootProject.properties["version"]
+sourceCompatibility = targetCompatibility = '1.8'
+
+compileKotlin {
+    kotlinOptions.jvmTarget = '1.8'
+}
+
+repositories {
+    mavenCentral()
+    maven {
+        url = "https://repo.trinarywolf.net/releases"
+    }
+}
+
+dependencies {
+    api("skywolf46:devain-version-full:1.3.1")
+}
+
+
+publishing {
+    repositories {
+        maven {
+            url(rootProject.properties["reposilite.release"] ?: "https://YOUR_REPOSIITE_URL/")
+            credentials {
+                username(rootProject.properties['reposilite.user'] as String ?: "YOUR_REPOSITORY_USERNAME")
+                password(rootProject.properties['reposilite.token'] as String ?: "YOUR_REPOSITORY_PASSWORD")
+            }
+        }
+    }
+    publications {
+        register("jar${project.name}", MavenPublication) {
+            groupId 'skywolf46'
+            artifactId "devain-configurator"
+            version(rootProject.properties['version'] as String)
+            from components.java
+        }
+    }
+}
